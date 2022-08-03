@@ -3,3 +3,5 @@ Type anything other than numbers, the change is fired even if the textfield cont
 <input type="text" [ngModel]="value" (ngModelChange)="onChange($event)" numbersOnly/>
 <br/>
 Change fire counter : {{counter}}
+<br/>
+<input type="text" [(ngModel)]="inputValue" numberOnly="positive"/>

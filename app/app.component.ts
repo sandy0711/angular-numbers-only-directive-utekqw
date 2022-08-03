@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent  {
 
   value='';
+  inputValue = '';
   counter = 0;
 
   onChange(event) {
