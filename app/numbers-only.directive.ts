@@ -17,7 +17,6 @@ export class NumberDirective {
 
   @HostListener('input', ['$event'])
   onInputChange(event) {
-    console.log(this.numericRegex);
     const initalValue = this._el.nativeElement.value;
     const regex = new RegExp(`${this.numericRegex}`, 'g');
     this._el.nativeElement.value = initalValue.replace(regex, '');
