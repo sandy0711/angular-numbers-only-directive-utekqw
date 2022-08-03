@@ -11,11 +11,13 @@ import { NgControl } from '@angular/forms';
   selector: 'input[numbersOnly]',
 })
 export class NumberDirective {
-  numericRegex = '[^0-9]*'; ///[^0-9]*/g;
+  @Input('numbersOnly')
+  numericRegex = '[^0-9]*';
   constructor(private _el: ElementRef) {}
 
   @HostListener('input', ['$event'])
   onInputChange(event) {
+    console.log(this.numericRegex);
     const initalValue = this._el.nativeElement.value;
     const regex = new RegExp(`${this.numericRegex}`, 'g');
     this._el.nativeElement.value = initalValue.replace(regex, '');

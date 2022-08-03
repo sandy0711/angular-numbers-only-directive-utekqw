@@ -1,7 +1,13 @@
-Type anything other than numbers, the change is fired even if the textfield content does not change :
-<br/>
-<input type="text" [ngModel]="value" (ngModelChange)="onChange($event)" numbersOnly/>
-<br/>
-Change fire counter : {{counter}}
-<br/>
-<input type="text" [(ngModel)]="inputValue" numberOnly="positive"/>
+Type anything other than numbers, the change is fired even if the textfield
+content does not change :
+<br />
+<input
+  type="text"
+  [ngModel]="value"
+  (ngModelChange)="onChange($event)"
+  numbersOnly="{{ pattern }}"
+/>
+<br />
+Change fire counter : {{ counter }}
+<br />
+<input type="text" [(ngModel)]="inputValue" numberOnly="positive" />
