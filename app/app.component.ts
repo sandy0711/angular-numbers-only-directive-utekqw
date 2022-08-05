@@ -10,7 +10,7 @@ export class AppComponent  {
   value='';
   inputValue = '';
   counter = 0;
-  pattern = '[^0-9]*';
+  pattern = '^[0-9]+$';
 
   onChange(event) {
     this.counter = this.counter + 1; 

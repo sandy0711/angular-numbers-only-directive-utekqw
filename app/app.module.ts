@@ -4,8 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-
-import { NumberDirective, NumberOnlyDirective } from './numbers-only.directive';
+import {
+  NumberDirective,
+  AllowInputsDirective,
+} from './allow-inputs.directive';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -13,7 +15,7 @@ import { NumberDirective, NumberOnlyDirective } from './numbers-only.directive';
     AppComponent,
     HelloComponent,
     NumberDirective,
-    NumberOnlyDirective,
+    AllowInputsDirective,
   ],
   bootstrap: [AppComponent],
 })

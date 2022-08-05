@@ -5,9 +5,9 @@ content does not change :
   type="text"
   [ngModel]="value"
   (ngModelChange)="onChange($event)"
-  numbersOnly="{{ pattern }}"
+  allowInputs="^(\d+(?:\,\d*)?)*$"
 />
 <br />
 Change fire counter : {{ counter }}
 <br />
-<input type="text" [(ngModel)]="inputValue" numberOnly="positive" />
+<input type="text" [(ngModel)]="inputValue" numbersOnly="[^0-9]*" />
