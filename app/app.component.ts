@@ -14,8 +14,12 @@ export class AppComponent {
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quas! Quae nam provident facilis explicabo, earum quis. Libero, distinctio! Dignissimos, vitae. Saepe consectetur tempora a modi cum id iusto autem reprehenderit beatae pariatur voluptate, suscipit sequi corporis eaque aspernatur natus ad ratione, ipsa sapiente ducimus debitis placeat hic iure! Id.';
 
   user$: Promise<{}>;
+  loader$: Promise<{}>;
   constructor() {
     this.user$ = this.getPromise();
+    this.loader$ = new Promise((resolve, reject) => {
+      setTimeout(() => resolve('Promise complete!'), 30);
+    });
   }
 
   onChange(event) {
@@ -25,5 +29,9 @@ export class AppComponent {
     return new Promise((resolve, reject) => {
       setTimeout(() => resolve('Promise complete!'), 3000);
     });
+  }
+
+  onClick() {
+    this.loader$ = this.getPromise();
   }
 }
