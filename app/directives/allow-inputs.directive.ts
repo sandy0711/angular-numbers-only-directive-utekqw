@@ -14,10 +14,20 @@ export class AllowInputsDirective implements OnInit {
   inputPattern = '';
   private regex: RegExp;
   // Allow key codes for special events. Reflect :Backspace, tab, end, home
-  private specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home'];
+  private specialKeys: Array<string> = [
+    'Backspace',
+    'Tab',
+    'End',
+    'Home',
+    '-',
+    'ArrowLeft',
+    'ArrowRight',
+    'Del',
+    'Delete',
+  ];
 
   constructor(private el: ElementRef) {
-    // decimal pattern upto 2 digits: ^[0-9]+\.?[0-9]{0,2}$ or ^(\d+\.?[0-9]{0,2})$
+    // decimal pattern upto 2 digits: ^[0-9]+\.?[0-9]{0,2}$ or ^(\d+\.?\d{0,2})$ or ^\d*\.?\d{0,2}$
     // positive number: ^(\d+)$
     // comma separated number: ^([0-9]+(?:\,[0-9]*)?)*$ or ^(\d+(?:\,\d*)?)*$
   }
@@ -38,25 +48,6 @@ export class AllowInputsDirective implements OnInit {
     // console.log(this.regex.source);
     if (next && !String(next).match(this.regex)) {
       event.preventDefault();
-    }
-  }
-}
-
-@Directive({
-  selector: 'input[numbersOnly]',
-})
-export class NumberDirective {
-  @Input('numbersOnly')
-  numericRegex = '';
-  constructor(private _el: ElementRef) {}
-
-  @HostListener('input', ['$event'])
-  onInputChange(event) {
-    const initalValue = this._el.nativeElement.value;
-    const regex = new RegExp(`${this.numericRegex}`, 'g');
-    this._el.nativeElement.value = initalValue.replace(regex, '');
-    if (initalValue !== this._el.nativeElement.value) {
-      event.stopPropagation();
     }
   }
 }

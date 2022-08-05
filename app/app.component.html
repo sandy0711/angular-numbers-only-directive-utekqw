@@ -1,13 +1,44 @@
-Type anything other than numbers, the change is fired even if the textfield
-content does not change :
-<br />
-<input
-  type="text"
-  [ngModel]="value"
-  (ngModelChange)="onChange($event)"
-  allowInputs="^(\d+(?:\,\d*)?)*$"
-/>
-<br />
-Change fire counter : {{ counter }}
-<br />
-<input type="text" [(ngModel)]="inputValue" numbersOnly="[^0-9]*" />
+<div>
+  <div class="container">
+    <div *dtLoading="user$">
+      Type anything other than numbers, the change is fired even if the
+      textfield content does not change :
+      <br />
+      <input
+        type="text"
+        [ngModel]="value"
+        (ngModelChange)="onChange($event)"
+        allowInputs="^(\d+(?:\,\d*)?)*$"
+      />
+      <br />
+      <p expandTextOnHover originalText="{{ text }}"></p>
+      <br />
+
+      <input
+        type="textbox"
+        [(ngModel)]="inputValue"
+        placeholder="XX.XX"
+        appTwoDigitDecimaNumber
+      />
+      <input
+        type="textbox"
+        [(ngModel)]="inputValue"
+        placeholder="XX.XX"
+        allowInputs="^\d*\.?\d{0,2}$"
+      />
+    </div>
+
+    <br />
+  </div>
+
+  <div></div>
+</div>
+
+<!-- https://dev.to/devlazar/reusable-loader-directive-angular-498h -->
+<div relativeLoader [loading]="true">
+  <div>relative loader</div>
+</div>
+
+<div [spinner]="true">
+  <div>spinner loader</div>
+</div>
