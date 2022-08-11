@@ -44,8 +44,8 @@ export class AllowInputsDirective implements OnInit {
     }
     const current: string = this.el.nativeElement.value;
     const next: string = current.concat(event.key);
-    // console.log(String(next).match(this.regex));
-    // console.log(this.regex.source);
+    // console.log("current : " + current);
+    // console.log("next : " + next);
     if (next && !String(next).match(this.regex)) {
       event.preventDefault();
     }

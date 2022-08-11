@@ -12,7 +12,8 @@ export class HasPermissionDirective {
     private viewContainer: ViewContainerRef // private service: PermissionService
   ) {}
 
-  @Input() set isAllowed(code: string) {
+  @Input()
+  set hasPermission(code: string) {
     if (code) {
       this.service.isAllowed(code).subscribe((allow) => {
         if (allow) {
